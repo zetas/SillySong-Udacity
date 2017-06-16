@@ -22,46 +22,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silly Song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rk6-jc-C6D">
-                                <rect key="frame" x="57" y="34" width="260" height="95"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fY9-tT-vLk">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silly Song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rk6-jc-C6D">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="Csb-Mv-li7"/>
+                                            <constraint firstAttribute="height" constant="96" id="Zsz-1G-hk6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="60"/>
+                                        <color key="textColor" red="0.55814197457863091" green="0.2067171310766317" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CH7-xc-kPR">
+                                        <rect key="frame" x="0.0" y="152.5" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="n9x-ib-7zG"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <connections>
+                                            <action selector="displayLyrics:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yXC-sr-dEo"/>
+                                            <action selector="reset:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="MzR-W3-PHU"/>
+                                        </connections>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HqX-aY-u6M">
+                                        <rect key="frame" x="0.0" y="239" width="343" height="408"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="408.5" id="0Tn-vn-HAb"/>
+                                            <constraint firstAttribute="width" constant="343" id="EnM-Ff-5dE"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="02a-xZ-g7R"/>
-                                    <constraint firstAttribute="width" constant="260" id="2m6-Jd-65x"/>
+                                    <constraint firstItem="CH7-xc-kPR" firstAttribute="top" secondItem="Rk6-jc-C6D" secondAttribute="bottom" constant="56.5" id="zKN-GI-Fcf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="60"/>
-                                <color key="textColor" red="0.55814197457863091" green="0.2067171310766317" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HqX-aY-u6M">
-                                <rect key="frame" x="67" y="249" width="240" height="163"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="163" id="Ctt-ia-Joi"/>
-                                    <constraint firstAttribute="width" constant="240" id="hpc-p3-ygS"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CH7-xc-kPR">
-                                <rect key="frame" x="16" y="178" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                <connections>
-                                    <action selector="displayLyrics:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="yXC-sr-dEo"/>
-                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="MzR-W3-PHU"/>
-                                </connections>
-                            </textField>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.43579111539881121" green="0.78058717150131918" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="CH7-xc-kPR" secondAttribute="leading" id="CUd-Ht-nbr"/>
-                            <constraint firstItem="HqX-aY-u6M" firstAttribute="centerX" secondItem="CH7-xc-kPR" secondAttribute="centerX" id="GDP-4Z-uPv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CH7-xc-kPR" secondAttribute="trailing" id="IKk-fe-6g3"/>
-                            <constraint firstItem="CH7-xc-kPR" firstAttribute="top" secondItem="Rk6-jc-C6D" secondAttribute="bottom" constant="49" id="PW8-DR-HEU"/>
-                            <constraint firstItem="HqX-aY-u6M" firstAttribute="top" secondItem="CH7-xc-kPR" secondAttribute="bottom" constant="41" id="i2F-F5-n2E"/>
-                            <constraint firstItem="Rk6-jc-C6D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jhn-Jt-Wcf"/>
-                            <constraint firstItem="Rk6-jc-C6D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="nHC-ed-sVd"/>
+                            <constraint firstItem="fY9-tT-vLk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2hW-ox-RoD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fY9-tT-vLk" secondAttribute="trailing" id="9D0-gv-WVJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fY9-tT-vLk" secondAttribute="bottom" id="Wlz-8k-ijE"/>
+                            <constraint firstItem="fY9-tT-vLk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="u2r-UY-HYC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -71,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="117.39130434782609" y="122.40000000000001"/>
         </scene>
     </scenes>
 </document>

@@ -32,7 +32,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let index = lowercaseName.rangeOfCharacter(from: vowelSet)
         
-        return lowercaseName.substring(from: index!.lowerBound)
+        if let index = index {
+            return lowercaseName.substring(from: index.lowerBound)
+        }
+        return lowercaseName
     }
 
     func lyricsForName(lyricsTemplate: String, fullName: String) -> String {
