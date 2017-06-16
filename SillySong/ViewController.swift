@@ -8,18 +8,54 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var lyricsView: UITextView!
+    
+    
+    let bananaFanaTemplate = [
+        "<FULL_NAME>, <FULL_NAME>, Bo B<SHORT_NAME>",
+        "Banana Fana Fo F<SHORT_NAME>",
+        "Me My Mo M<SHORT_NAME>",
+        "<FULL_NAME>"].joined(separator: "\n")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        nameField.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func shortNameFromName(name: String) -> String {
+        let lowercaseName = name.lowercased()
+        let vowelSet = CharacterSet(charactersIn: "aeiou")
+        
+        let index = lowercaseName.rangeOfCharacter(from: vowelSet)
+        
+        return lowercaseName.substring(from: index!.lowerBound)
     }
 
+    func lyricsForName(lyricsTemplate: String, fullName: String) -> String {
+        let shortName = shortNameFromName(name: fullName)
+        let lyrics = lyricsTemplate.replacingOccurrences(of: "<FULL_NAME>", with: fullName)
+        return lyrics.replacingOccurrences(of: "<SHORT_NAME>", with: shortName)
+    }
+    @IBAction func reset(_ sender: Any) {
+        nameField.text = ""
+        lyricsView.text = ""
+    }
+    @IBAction func displayLyrics(_ sender: Any) {
+        if nameField.text?.characters.count == 0 {
+            return
+        }
+        
+        lyricsView.text = lyricsForName(lyricsTemplate: bananaFanaTemplate, fullName: nameField.text!)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 
 }
 
