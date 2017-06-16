@@ -48,11 +48,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         lyricsView.text = ""
     }
     @IBAction func displayLyrics(_ sender: Any) {
-        if nameField.text?.characters.count == 0 {
+        guard let name = nameField.text, !name.isEmpty else {
             return
         }
         
-        lyricsView.text = lyricsForName(lyricsTemplate: bananaFanaTemplate, fullName: nameField.text!)
+        lyricsView.text = lyricsForName(lyricsTemplate: bananaFanaTemplate, fullName: name)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
